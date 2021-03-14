@@ -12,5 +12,5 @@ const getRandomInteger = (min, max) => {
   window.console.error('задан неверный диапазон');
 };
 
-isStringCorrectLength(Keks, 10);
+isStringCorrectLength('Keks', 10);
 getRandomInteger(3.3, 10.5);
