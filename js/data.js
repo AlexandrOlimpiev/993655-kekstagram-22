@@ -1,6 +1,7 @@
 import {
   getRandomInteger,
-  getRandomElementArray
+  getRandomElementArray,
+  makeUniqueIntegerGenerator
 } from './util.js'
 
 const PHOTO_COUNT = 25;
@@ -11,6 +12,7 @@ const COMMENTS_COUNT_MIN = 0;
 const COMMENTS_COUNT_MAX = 5;
 const AVATAR_COUNT_MIN = 1;
 const AVATAR_COUNT_MAX = 6;
+const MIN_ID = 1;
 const MAX_ID = 1000;
 const MESSAGES = [
   'Всё отлично!',
@@ -22,19 +24,11 @@ const MESSAGES = [
 ];
 const NAMES = ['Анна', 'Борис', 'Владимир', 'Вася', 'Дуся', 'Евгений'];
 
-const usedIds = new Array();
-const getUniqueId = () => {
-  let uniqueId = getRandomInteger(0, MAX_ID);
-  if (!usedIds.includes(uniqueId)) {
-    usedIds.push(uniqueId);
-    return uniqueId;
-  }
-  return getUniqueId();
-};
+const getUniqueId = makeUniqueIntegerGenerator(MIN_ID, MAX_ID);
 
 const createComment = () => {
   return {
-    id: getUniqueId(MAX_ID),
+    id: getUniqueId(),
     avatar: `img/avatar-${getRandomInteger(AVATAR_COUNT_MIN, AVATAR_COUNT_MAX)}.svg`,
     message: getRandomElementArray(MESSAGES),
     name: getRandomElementArray(NAMES),
@@ -56,7 +50,6 @@ const createPhoto = (index) => {
 };
 
 const photos = new Array(PHOTO_COUNT).fill(null).map((item, index) => createPhoto(index));
-usedIds.length = 0;
 
 export {
   photos
