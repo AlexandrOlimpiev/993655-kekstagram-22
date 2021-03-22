@@ -1,8 +1,4 @@
-import {
-  getRandomInteger,
-  getRandomElementArray,
-  makeUniqueIntegerGenerator
-} from './util.js'
+import { getRandomInteger, getRandomElementArray, makeUniqueIntegerGenerator } from './util.js'
 
 const PHOTO_COUNT = 25;
 const LIKES_COUNT_MIN = 15;
@@ -42,7 +38,7 @@ const createArrayComments = () => {
 const createPhoto = (index) => {
   return {
     id: index + 1,
-    url: `photos/${index+1}.jpg`,
+    url: `photos/${index + 1}.jpg`,
     description: getRandomElementArray(DESCRIPTIONS),
     likes: getRandomInteger(LIKES_COUNT_MIN, LIKES_COUNT_MAX),
     comments: createArrayComments(),
