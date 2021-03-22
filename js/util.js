@@ -31,9 +31,10 @@ const makeUniqueIntegerGenerator = (min, max) => {
   return getUniqueInteger;
 };
 
+const isEscEvent = (evt) => {
+  return evt.key === ('Escape' || 'Esc');
+};
+
 export {
-  checkLengthString,
-  getRandomInteger,
-  getRandomElementArray,
-  makeUniqueIntegerGenerator
+  checkLengthString, getRandomInteger, getRandomElementArray, makeUniqueIntegerGenerator, isEscEvent
 };
