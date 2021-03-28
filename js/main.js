@@ -1,2 +1,3 @@
 import './picture.js';
-import './big-picture.js';
+import './upload-picture.js';
+import './slider.js'
