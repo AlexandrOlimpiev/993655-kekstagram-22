@@ -1,7 +1,3 @@
-const checkLengthString = (checkedString, maxLength) => {
-  return (checkedString.length <= maxLength);
-};
-
 const getRandomInteger = (min, max) => {
   if (min >= 0 && max > min) {
     min = Math.ceil(min);
@@ -36,5 +32,5 @@ const isEscEvent = (evt) => {
 };
 
 export {
-  checkLengthString, getRandomInteger, getRandomElementArray, makeUniqueIntegerGenerator, isEscEvent
+  getRandomInteger, getRandomElementArray, makeUniqueIntegerGenerator, isEscEvent
 };
